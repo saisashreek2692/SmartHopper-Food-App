@@ -1,13 +1,12 @@
-import { Button } from "@/components/ui/button"
-import { UserButton } from "@clerk/nextjs";
-
+import BusinessList from "./_components/BusinessList";
+import CategoryList from "./_components/CategoryList";
 
 export default function Home() {
+  
   return (
     <div>
-      <h2>Welcome to Smarthopper - Foodie App</h2>
-      <Button>Welcome to Smarthopper</Button>
-      <UserButton afterSignOutUrl="/" />
+      <CategoryList />
+      <BusinessList />
     </div>
   );
 }
