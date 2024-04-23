@@ -21,7 +21,7 @@ function BusinessItem({ business }) {
               {business?.restroType[0]}
             </h2>
           </div>
-          <h2 className="text-primary text-sm"></h2>
+          <h2 className="text-primary text-sm font-semibold">{business.categories[0].name}</h2>
         </div>
       </div>
     </div>
