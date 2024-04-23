@@ -2,8 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import GlobalApi from "../_utils/GlobalApi";
 import Image from "next/image";
-import { ArrowLeftCircle, ArrowRightCircle } from "lucide-react";
-import { list } from "postcss";
+import {  ArrowRightCircle } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
