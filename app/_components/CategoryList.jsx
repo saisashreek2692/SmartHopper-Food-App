@@ -59,6 +59,7 @@ function CategoryList() {
                 width={40}
                 height={40}
                 className="group-hover:scale-125 transition-all duration-200"
+                priority={true}
               />
               <h2 className="text-sm font-medium group-hover:text-primary">
                 {category.name}
