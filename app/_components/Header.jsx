@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
 
 function Header() {
-  const { user, isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
 
   return (
     <div className="flex justify-between items-center md:px-20 shadow-sm">
