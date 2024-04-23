@@ -1,16 +1,43 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import { Search } from "lucide-react";
+import { Search, ShoppingCart } from "lucide-react";
 import Image from "next/image";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { CartUpdateContext } from "../_context/CartUpdateContext";
+import GlobalApi from "../_utils/GlobalApi";
 
 function Header() {
-  const { isSignedIn } = useUser();
+  const { user, isSignedIn } = useUser();
+  const { updateCart, setUpdateCart } = useContext(CartUpdateContext);
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    console.log("Execute Me!!");
+    user && GetUserCart();
+  }, [updateCart && user]);
+
+  const GetUserCart = () => {
+    GlobalApi.GetUserCart(user?.primaryEmailAddress?.emailAddress).then(
+      (resp) => {
+        console.log(resp);
+        setCart(resp?.userCarts);
+      }
+    );
+  };
 
   return (
     <div className="flex justify-between items-center md:px-20 shadow-sm">
-      <Image src="/logo.png" alt="logo" width={200} height={200} priority={true} />
+      <Link href={"/"}>
+        <Image
+          src="/logo.png"
+          alt="logo"
+          width={200}
+          height={200}
+          priority={true}
+        />
+      </Link>
       <div className="hidden md:flex border p-2 rounded-lg bg-gray-200 w-96">
         <input
           type="text"
@@ -20,7 +47,15 @@ function Header() {
         <Search />
       </div>
       {isSignedIn ? (
-        <UserButton />
+        <div className="flex gap-3 items-center">
+          <div className="flex gap-2">
+            <ShoppingCart />
+            <label className="p-1 px-3 font-semibold rounded-full bg-slate-200">
+              {cart?.length}
+            </label>
+          </div>
+          <UserButton />
+        </div>
       ) : (
         <div className="flex gap-5">
           <SignInButton mode="modal">
