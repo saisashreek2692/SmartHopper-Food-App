@@ -10,7 +10,7 @@ function Header() {
 
   return (
     <div className="flex justify-between items-center md:px-20 shadow-sm">
-      <Image src="/logo.png" alt="logo" width={200} height={200} />
+      <Image src="/logo.png" alt="logo" width={200} height={200} priority={true} />
       <div className="hidden md:flex border p-2 rounded-lg bg-gray-200 w-96">
         <input
           type="text"
