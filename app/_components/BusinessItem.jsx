@@ -3,6 +3,20 @@ import Link from "next/link";
 import React from "react";
 
 function BusinessItem({ business }) {
+
+  const calculateRating = () => {
+    let total = 0;
+    let count = 0;
+    business?.reviews.forEach(item => {
+      total = total + item.star;
+      count++;
+    });
+
+    const result = total / count;
+    return result ? result.toFixed(1) : 0;
+
+  };
+
   return (
     <Link
       href={"/restaurant/" + business?.slug}
@@ -21,7 +35,7 @@ function BusinessItem({ business }) {
         <div className="flex justify-between items-center">
           <div className="flex gap-2 items-center">
             <Image src="/star.png" alt="star" width={14} height={14} priority={true} />
-            <label className="text-gray-400 text-sm font-medium">4.5</label>
+            <label className="text-gray-400 text-sm font-medium">{calculateRating()}</label>
             <h2 className="text-gray-400 text-sm font-medium">
               {business?.restroType[0]}
             </h2>
