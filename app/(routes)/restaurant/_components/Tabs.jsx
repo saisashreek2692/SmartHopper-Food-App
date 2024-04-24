@@ -1,6 +1,7 @@
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MenuSection from "./MenuSection";
+import ReviewsSection from "./ReviewsSection";
 
 function Tab({restaurant}) {
   return (
@@ -14,7 +15,9 @@ function Tab({restaurant}) {
         <MenuSection restaurant={restaurant} />
       </TabsContent>
       <TabsContent value="about">This is restaurant about section</TabsContent>
-      <TabsContent value="reviews">Review section for restaurant</TabsContent>
+      <TabsContent value="reviews">
+        <ReviewsSection restaurant={restaurant} />
+      </TabsContent>
     </Tabs>
   );
 }
