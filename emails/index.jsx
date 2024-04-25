@@ -14,12 +14,11 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-const baseUrl = 'localhost:3000';
 
 export const Email = () => (
   <Html>
     <Head />
-    <Preview>Apple Receipt</Preview>
+    <Preview>Order Confirmation Email</Preview>
 
     <Body style={main}>
       <Container style={container}>
@@ -27,27 +26,17 @@ export const Email = () => (
           <Row>
             <Column>
               <Img
-                src={`https://react-email-demo-jsqyb0z9w-resend.vercel.app/static/apple-logo.png`}
+                src={`/logo.jpeg`}
                 width="42"
                 height="42"
-                alt="Apple Logo"
+                alt="Smarthopper Logo"
               />
             </Column>
 
             <Column align="right" style={tableCell}>
-              <Text style={heading}>Receipt</Text>
+              <Text style={heading}>Order Confirmation Email</Text>
             </Column>
           </Row>
-        </Section>
-        <Section>
-          <Text style={cupomText}>
-            Save 3% on all your Apple purchases with Apple Card.
-            <sup style={supStyle}>1</sup>{" "}
-            <Link href="https://www.apple.com/apple-card">
-              Apply and use in minutes
-            </Link>
-            <sup style={supStyle}>2</sup>
-          </Text>
         </Section>
         <Section style={informationTable}>
           <Row style={informationTableRow}>
@@ -55,7 +44,7 @@ export const Email = () => (
               <Section>
                 <Row>
                   <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>APPLE ID</Text>
+                    <Text style={informationTableLabel}>Order Email Address</Text>
                     <Link
                       style={{
                         ...informationTableValue,
@@ -63,15 +52,15 @@ export const Email = () => (
                         textDecoration: "underline",
                       }}
                     >
-                      alan.turing@gmail.com
+                      dsaisashreek@gmail.com
                     </Link>
                   </Column>
                 </Row>
 
                 <Row>
                   <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>INVOICE DATE</Text>
-                    <Text style={informationTableValue}>18 Jan 2023</Text>
+                    <Text style={informationTableLabel}>ORDERED DATE</Text>
+                    <Text style={informationTableValue}>25 Apr 2024</Text>
                   </Column>
                 </Row>
 
@@ -88,33 +77,29 @@ export const Email = () => (
                       ML4F5L8522
                     </Link>
                   </Column>
-                  <Column style={informationTableColumn}>
-                    <Text style={informationTableLabel}>DOCUMENT NO.</Text>
-                    <Text style={informationTableValue}>186623754793</Text>
-                  </Column>
                 </Row>
               </Section>
             </Column>
             <Column style={informationTableColumn} colSpan={2}>
               <Text style={informationTableLabel}>BILLED TO</Text>
               <Text style={informationTableValue}>
-                Visa .... 7461 (Apple Pay)
+                Visa .... 7461
               </Text>
-              <Text style={informationTableValue}>Alan Turing</Text>
-              <Text style={informationTableValue}>2125 Chestnut St</Text>
-              <Text style={informationTableValue}>San Francisco, CA 94123</Text>
-              <Text style={informationTableValue}>USA</Text>
+              <Text style={informationTableValue}>Sai Sashreek D</Text>
+              <Text style={informationTableValue}>9966780269</Text>
+              <Text style={informationTableValue}>Srinagar Colony, Hyderabad, Telangana</Text>
+              <Text style={informationTableValue}>India</Text>
             </Column>
           </Row>
         </Section>
         <Section style={productTitleTable}>
-          <Text style={productsTitle}>App Store</Text>
+          <Text style={productsTitle}>Ordered Items</Text>
         </Section>
         <Section>
           <Row>
             <Column style={{ width: "64px" }}>
               <Img
-                src={`https://react-email-demo-jsqyb0z9w-resend.vercel.app/static/apple-hbo-max-icon.jpeg`}
+                src={`/logo.jpeg`}
                 width="64"
                 height="64"
                 alt="HBO Max"
@@ -122,24 +107,9 @@ export const Email = () => (
               />
             </Column>
             <Column style={{ paddingLeft: "22px" }}>
-              <Text style={productTitle}>HBO Max: Stream TV &amp; Movies</Text>
-              <Text style={productDescription}>HBO Max Ad-Free (Monthly)</Text>
-              <Text style={productDescription}>Renews Aug 20, 2023</Text>
-              <Link
-                href="https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/addUserReview?cc=us&amp;id=1497977514&amp;o=i&amp;type=Subscription%20Renewal"
-                style={productLink}
-                data-saferedirecturl="https://www.google.com/url?q=https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/addUserReview?cc%3Dus%26id%3D1497977514%26o%3Di%26type%3DSubscription%2520Renewal&amp;source=gmail&amp;ust=1673963081204000&amp;usg=AOvVaw2DFCLKMo1snS-Swk5H26Z1"
-              >
-                Write a Review
-              </Link>
-              <span style={divisor}>|</span>
-              <Link
-                href="https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/reportAProblem?a=1497977514&amp;cc=us&amp;d=683263808&amp;o=i&amp;p=29065684906671&amp;pli=29092219632071&amp;s=1"
-                style={productLink}
-                data-saferedirecturl="https://www.google.com/url?q=https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/reportAProblem?a%3D1497977514%26cc%3Dus%26d%3D683263808%26o%3Di%26p%3D29065684906671%26pli%3D29092219632071%26s%3D1&amp;source=gmail&amp;ust=1673963081204000&amp;usg=AOvVaw3y47L06B2LTrL6qsmaW2Hq"
-              >
-                Report a Problem
-              </Link>
+              <Text style={productTitle}>Product Name</Text>
+              <Text style={productDescription}>Restaurant Name</Text>
+              <Text style={productDescription}>Quantity: 2</Text>              
             </Column>
 
             <Column style={productPriceWrapper} align="right">
@@ -164,7 +134,7 @@ export const Email = () => (
           <Row>
             <Column align="center" style={block}>
               <Img
-                src={`https://react-email-demo-jsqyb0z9w-resend.vercel.app/static/apple-card-icon.png`}
+                src={`/logo.jpeg`}
                 width="60"
                 height="17"
                 alt="Apple Card"
@@ -172,121 +142,9 @@ export const Email = () => (
             </Column>
           </Row>
         </Section>
-        <Section>
-          <Row>
-            <Column align="center" style={ctaTitle}>
-              <Text style={ctaText}>Save 3% on all your Apple purchases.</Text>
-            </Column>
-          </Row>
-        </Section>
-        <Section>
-          <Row>
-            <Column align="center" style={walletWrapper}>
-              <Link
-                href="https://wallet.apple.com/apple-card/setup/feature/ccs?referrer=cid%3Dapy-120-100003"
-                style={walletLink}
-              >
-                <Img
-                  src={`https://react-email-demo-jsqyb0z9w-resend.vercel.app/static/apple-wallet.png`}
-                  width="28"
-                  height="28"
-                  alt="Apple Wallet"
-                  style={walletImage}
-                />
-                <span style={walletLinkText}>Apply and use in minutes</span>
-              </Link>
-            </Column>
-          </Row>
-        </Section>
-        <Hr style={walletBottomLine} />
-        <Text style={footerText}>
-          1. 3% savings is earned as Daily Cash and is transferred to your Apple
-          Cash card when transactions post to your Apple Card account. If you do
-          not have an Apple Cash card, Daily Cash can be applied by you as a
-          credit on your statement balance. 3% is the total amount of Daily Cash
-          earned for these purchases. See the Apple Card Customer Agreement for
-          more details on Daily Cash and qualifying transactions.
-        </Text>
-        <Text style={footerText}>2. Subject to credit approval.</Text>
-        <Text style={footerText}>
-          To access and use all the features of Apple Card, you must add Apple
-          Card to Wallet on an iPhone or iPad with iOS or iPadOS 13.2 or later.
-          Update to the latest version of iOS or iPadOS by going to Settings
-          &gt; General &gt; Software Update. Tap Download and Install.
-        </Text>
-        <Text style={footerText}>
-          Available for qualifying applicants in the United States.
-        </Text>
-        <Text style={footerText}>
-          Apple Card is issued by Goldman Sachs Bank USA, Salt Lake City Branch.
-        </Text>
-        <Text style={footerText}>
-          If you reside in the US territories, please call Goldman Sachs at
-          877-255-5923 with questions about Apple Card.
-        </Text>
-        <Text style={footerTextCenter}>
-          Privacy: We use a
-          <Link href="http://support.apple.com/kb/HT207233" style={footerLink}>
-            {" "}
-            Subscriber ID{" "}
-          </Link>
-          to provide reports to developers.
-        </Text>
-        <Text style={footerTextCenter}>
-          Get help with subscriptions and purchases.
-          <Link
-            href="https://support.apple.com/billing?cid=email_receipt"
-            style={footerLink}
-          >
-            Visit Apple Support.
-          </Link>
-        </Text>
-        <Text style={footerTextCenter}>
-          Learn how to{" "}
-          <Link href="https://support.apple.com/kb/HT204030?cid=email_receipt_itunes_article_HT204030">
-            manage your password preferences
-          </Link>{" "}
-          for iTunes, Apple Books, and App Store purchases.
-        </Text>
-
-        <Text style={footerTextCenter}>
-          {" "}
-          You have the option to stop receiving email receipts for your
-          subscription renewals. If you have opted out, you can still view your
-          receipts in your account under Purchase History. To manage receipts or
-          to opt in again, go to{" "}
-          <Link href="https://finance-app.itunes.apple.com/account/subscriptions?unsupportedRedirectUrl=https://apps.apple.com/US/invoice">
-            Account Settings.
-          </Link>
-        </Text>
-        <Section>
-          <Row>
-            <Column align="center" style={footerIcon}>
-              <Img
-                src={`https://react-email-demo-jsqyb0z9w-resend.vercel.app/static/apple-logo.png`}
-                width="26"
-                height="26"
-                alt="Apple Card"
-              />
-            </Column>
-          </Row>
-        </Section>
-        <Text style={footerLinksWrapper}>
-          <Link href="https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/accountSummary?mt=8">
-            Account Settings
-          </Link>{" "}
-          •{" "}
-          <Link href="https://www.apple.com/legal/itunes/us/sales.html">
-            Terms of Sale
-          </Link>{" "}
-          •{" "}
-          <Link href="https://www.apple.com/legal/privacy/">
-            Privacy Policy{" "}
-          </Link>
-        </Text>
         <Text style={footerCopyright}>
-          Copyright © 2023 Apple Inc. <br />{" "}
-          <Link href="https://www.apple.com/legal/">All rights reserved</Link>
+          Copyright © 2024 Smarthopper - Foodie CArt. <br />{" "}
+          <Link href="/">All rights reserved</Link>
         </Text>
       </Container>
     </Body>
