@@ -1,7 +1,7 @@
 import { authMiddleware } from "@clerk/nextjs/server";
  
 export default authMiddleware({
-    publicRoutes: ["/"],
+    publicRoutes: ["/", "/checkout/clerk_catchall_check_1714026684201"],
 });
  
 export const config = {
