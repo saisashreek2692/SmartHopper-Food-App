@@ -1,7 +1,7 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import { Quicksand } from "next/font/google";
 import "./globals.css";
-import '@smastrom/react-rating/style.css'
+import "@smastrom/react-rating/style.css";
 import Provider from "./Provider";
 
 const inter = Quicksand({ subsets: ["latin"] });
