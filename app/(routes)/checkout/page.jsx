@@ -84,7 +84,8 @@ function Checkout() {
                 setLoading(false);
                 toast("Order Created Successfully");
                 setUpdateCart(!updateCart);
-                router.replace('/confirmation');
+                sendEmail();
+                router.replace("/confirmation");
               },
               (error) => {
                 setLoading(false);
@@ -97,6 +98,28 @@ function Checkout() {
         setLoading(false);
       }
     );
+  };
+
+  const sendEmail = async () => {
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: user?.primaryEmailAddress.emailAddress,
+        }),
+      });
+      if (!response.ok) {
+        toast('Error while sending Email Address')
+      } else {
+        toast('Confirmation Email Sent Successfully')
+      }
+    } catch (error) {
+      console.log(error);
+      toast('Error while sending Email Address')
+    }
   };
 
   return (
@@ -148,16 +171,16 @@ function Checkout() {
             <h2 className="flex justify-between">
               Total: <span>&#8377; {total.toFixed(2)}</span>
             </h2>
-            {/* <Button onClick={() => addToOrder()}>
+            <Button onClick={() => sendEmail()}>
               {loading ? <Loader className="animate-spin" /> : `Paynow`}
-            </Button> */}
+            </Button>
             {total > 5 && (
               <PayPalButtons
                 disabled={!(userName && email && address && zip) || loading}
                 style={{ layout: "horizontal" }}
                 onApprove={addToOrder}
-                createOrder={(data, action) => {
-                  return action.order.create({
+                createOrder={(data, actions) => {
+                  return actions.order.create({
                     purchase_units: [
                       {
                         amount: {
