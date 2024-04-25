@@ -5,6 +5,7 @@ import React, { useContext } from "react";
 import GlobalApi from "../_utils/GlobalApi";
 import { toast } from "sonner";
 import { CartUpdateContext } from "../_context/CartUpdateContext";
+import Link from "next/link";
 
 function Cart({ cart }) {
 
@@ -55,7 +56,9 @@ function Cart({ cart }) {
               </h2>
             </div>
           ))}
-          <Button>Checkout &#8377; {calculateCartAmount()}</Button>
+          <Link href={"/checkout?restaurant="+cart[0]?.restaurant?.name} className="w-full">
+            <Button className="w-full">Checkout &#8377; {calculateCartAmount()}</Button>
+          </Link>
       </div>
     </div>
   );
